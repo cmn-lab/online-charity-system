@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+       .root-admin{
+           width: 100%;
+           height: 100%;
+           display: flex;
+           flex-direction: row;
+       }
+       .root-child{
+          
+       }
+       .left{
+        width: 220px;
+        height: 100%;
+        left: 0;
+        top: 60px;
+        position: fixed;
+        box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.479);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+       }
+       .content-display{
+       width: 84%;
+       height: fit-content;
+        left: 223px;
+        top: 60px;
+        bottom: 0px;
+        position: absolute;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-show{
+        width: 98%;
+        height: 500px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.274);
+        border: 1px solid rgba(0, 0, 0, 0.274);
+        margin-top: 10px;
+        overflow-y: scroll;
+    }
+#imagess{
+    width: 100%;
+    height: auto;
+}
+    .navigation{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.897);
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 4;
+   }
+   .photo{
+       width: 170px;
+       height:170px;
+       border:1px solid rgba(17, 17, 9, 0.473);
+       border-radius: 50%;
+       margin: 5px;
+   }
+   .navigationss{
+       width: 100%;
+       height: fit-content;
+       display: flex;
+       flex-direction: column;
+   }
+   .left-navigation{
+       margin: 5px;
+       text-decoration: none;
+       color: black;
+   }
+   body > div > div.root-admin > div.left.root-child > div.navigationss > span{
+     width: 100%;
+     height: 40px;
+     margin-top: 5px;
+     display: flex;
+  
+    align-items: center;
+    
+   }
+   .card-tittle{
+       width: 95%;
+       height: fit-content;
+       margin: 10px;
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       position: absolute;
+       background-color: #f3f3f3;
+   }
+   #users{
+       width: 200px;
+       height: 30px;
+       outline: none;
+       border-radius: 10px;
+       padding-left: 10px;
+   }
+   .sp{
+       flex: 1 1 auto;
+   }
+   .card-content{
+       width: 100%;
+       height: 100%;
+       margin-top: 85px;
+   }
+   .show-users{
+       display: flex;
+       flex-direction: row;
+       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.171);
+       margin: 5px;
+   }
+   .show-u{
+    width: fit-content;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+   }
+   .photo-user{
+    flex:1;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+   }
+   .user-info{
+    flex: 2;
+    width: fit-content;
+    height: 100px;
+    display: flex;
+    align-items: center;
+   }
+   .user-action{
+    flex: 1;
+    width: fit-content;
+    height: 100px;
+    display: flex;
+    align-items: center;
+   }
+   .alik{
+       margin: 3px;
+       width: 100px;
+       height: 30px;
+       background-color: yellow;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       text-decoration: none;
+       border-radius: 10px;
+       color: black;
+   }
+   @media (max-width: 800px){
+    .left{
+        width: 220px;
+        height: 100%;
+        left: 0;
+        top: 60px;
+        position: fixed;
+        box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.479);
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        display: none;
+        z-index: 4;
+        background-color: rgba(0, 0, 0, 0.897);
+       
+    }  
+       
+       .content-display{
+        width: 100%;
+        height: 1000px;
+        left: 0px;
+        top: 60px;
+        bottom: 0px;
+        position: absolute;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+    }
+
+    .photo{
+       width: 140px;
+       height:140px;
+       border:1px solid rgba(17, 17, 9, 0.473);
+       border-radius: 50%;
+       margin: 5px;
+   }
+
+   .left-navigation{
+       margin: 5px;
+       text-decoration: none;
+       color: white;
+   }
+   }
+
+    </style>
+</head>
+<body>
+    <div class="body-div">
+    <div class="navigation">
+        <button id="btn-mobile1">☰</button>
+        <div class="logo"><h3>CHARITY</h3></div>
+        <div class="nav-links">
+            <nav>
+                <a href="" class="nav-class">Home</a>
+                <a href="" class="nav-class">About Us</a>
+                <a href="" class="nav-class">Pages</a>
+                <a href="" class="nav-class">Events</a>
+                <a href="" class="nav-class">Contact</a>
+                <button id="donate">Donate Now</button>
+            </nav>
+        </div>
+        <div class="mobile">
+            <button id="btn-mobile">☰</button>
+        </div>
+    </div>
+    <div class="root-admin">
+      <div class="left root-child">
+          <div class="photo">
+            <img src="default.png" alt="" srcset="" id="imagess">
+          </div>
+          <div class="navigationss">
+            <span><a href="" class="left-navigation">Dashboard</a></span>
+            <span><a href="Admin.html" class="left-navigation">Manage Users </a></span>
+            <span><a href="" class="left-navigation">Last activity</a></span>
+            <span><a href="assistant.html" class="left-navigation">Add assitances</a></span>
+            <!-- <span><a href="" class="left-navigation">Dashboard</a></span>
+            <span><a href="" class="left-navigation">Dashboard</a></span> -->
+          </div>
+      </div>
+      <div class="content-display root-child">
+          <div class="card-show">
+              <div class="card-tittle">
+                <h1>Dashboard</h1>
+                  <span></span>
+                  <span class="sp"></span>
+               <!-- left content -->
+              </div>
+              <div class="card-content">
+
+              </div>
+          </div>
+
+          <!-- <div class="card-show"></div>
+          <div class="card-show"></div>
+          <div class="card-show"></div>
+          <div class="card-show"></div> -->
+          
+      </div>
+    </div>
+   
+
+    <div class="mobile-navigation">
+        <div class="nav-links-mobile">
+            <nav class="nav-links-mobile">
+                <a href="" class="nav-class">Home</a>
+                <a href="" class="nav-class">About Us</a>
+                <a href="" class="nav-class">Pages</a>
+                <a href="" class="nav-class">Events</a>
+                <a href="" class="nav-class">Contact</a>
+                <button id="donate">Donate Now</button>
+            </nav>
+        </div>
+    </div>
+    </div>
+  <script>
+      let count=0;
+      document.querySelector("#btn-mobile").addEventListener("click",()=>{
+         count++;
+         if(count==2){
+             count=0;
+         }
+
+         if(count==1){
+            document.querySelector(".mobile-navigation").style.display="flex";
+         }else {
+            document.querySelector(".mobile-navigation").style.display="none";
+         }
+      })
+
+
+      let count1=0;
+      document.querySelector(" #btn-mobile1").addEventListener("click",()=>{
+         count1++;
+         if(count1==2){
+             count1=0;
+         }
+
+         if(count1==1){
+             
+            document.querySelector(".left").style.display="flex";
+         }else {
+            
+            document.querySelector(".left").style.display="none";
+         }
+      })
+     
+  </script>
+</body>
+</html>

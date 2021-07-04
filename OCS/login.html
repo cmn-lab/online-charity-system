@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="body-div">
+    <div class="navigation">
+        <div class="logo"><h3>CHARITY</h3></div>
+        <div class="nav-links">
+            <nav>
+                <a href="index.html" class="nav-class">Home</a>
+                <a href="" class="nav-class">About Us</a>
+                <a href="" class="nav-class">Pages</a>
+                <a href="" class="nav-class">Events</a>
+                <a href="" class="nav-class">Contact</a>
+                <button id="donate">Donate Now</button>
+            </nav>
+        </div>
+        <div class="mobile">
+            <button id="btn-mobile">☰</button>
+        </div>
+    </div>
+    <div class="showcontent">
+       
+    </div>
+   
+    <form action="" method="post" id="forms">
+        <h3>Login</h3>
+        <input type="email" name="" id="" required class="form-fields" placeholder="Email">
+        <input type="password" name="" id="" required class="form-fields" placeholder="Password">
+        
+        <button type="submit" id="register-btn">Login</button> 
+        <div>
+            <span>Don't have an account? <a href="registration.html" class="login">Register</a></span>
+        </div>
+       
+    </form>
+
+    <div class="mobile-navigation">
+        <div class="nav-links-mobile">
+            <nav class="nav-links-mobile">
+                <a href="index.html" class="nav-class">Home</a>
+                <a href="" class="nav-class">About Us</a>
+                <a href="" class="nav-class">Pages</a>
+                <a href="" class="nav-class">Events</a>
+                <a href="" class="nav-class">Contact</a>
+                <button id="donate">Donate Now</button>
+            </nav>
+        </div>
+    </div>
+    </div>
+  <script>
+      let count=0;
+      document.querySelector("#btn-mobile").addEventListener("click",()=>{
+         count++;
+         if(count==2){
+             count=0;
+         }
+
+         if(count==1){
+            document.querySelector(".mobile-navigation").style.display="flex";
+         }else {
+            document.querySelector(".mobile-navigation").style.display="none";
+         }
+      })
+  </script>
+</body>
+</html>
