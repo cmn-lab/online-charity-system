@@ -32,8 +32,8 @@
    
     <form action="" method="post" id="forms">
         <h3>Login</h3>
-        <input type="email" name="" id="" required class="form-fields" placeholder="Email">
-        <input type="password" name="" id="" required class="form-fields" placeholder="Password">
+        <input type="text" name="" id="in-email" required class="form-fields" placeholder="Email">
+        <input type="password" name="" id="in-pass" required class="form-fields" placeholder="Password">
         
         <button type="submit" id="register-btn">Login</button> 
         <div>
@@ -56,6 +56,7 @@
     </div>
     </div>
   <script>
+
       let count=0;
       document.querySelector("#btn-mobile").addEventListener("click",()=>{
          count++;
@@ -69,6 +70,32 @@
             document.querySelector(".mobile-navigation").style.display="none";
          }
       })
+
+     
+    
+       //For login admin
+       document.querySelector('#forms').addEventListener('submit',(e)=>{
+        e.preventDefault();
+       let email= document.querySelector("#in-email").value;
+       let pass=document.querySelector("#in-pass").value;
+
+       let adminemail="admin@gmail.com";
+       let adminPassword="1234admin";
+    
+     
+
+       if(adminemail==email&&adminPassword==pass){
+           window.location.href="./admin/dashboard.html";
+       }else {
+            window.location.href="./charityCenter.html";
+       }
+      
+      e.preventDefault();
+       })
+      
+
+        
+
   </script>
 </body>
 </html>
