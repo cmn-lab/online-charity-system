@@ -37,7 +37,7 @@
         <input type="text" name="" id="in-lname"  class="form-fields" placeholder="Last Name">
         <span id="lname" class="error">lname</span>
 
-        <input type="email" name="" id="in-email"  class="form-fields" placeholder="Email">
+        <input type="text" name="" id="in-email"  class="form-fields" placeholder="Email">
         <span id="email" class="error">email</span>
 
         <input type="password" name="" id="in-pass"  class="form-fields" placeholder="Password">
@@ -201,12 +201,43 @@
            e.preventDefault();
 
        }else {
-       
+       if(validateEmail(email.value)){
+
+        }else{
+        e.preventDefault();
+        document.querySelector("#email").innerHTML="Invalid Email";
+        document.querySelector("#email").style.display="block";
+        }
          
+
+        function validation(){
+            var numberpattern=/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;////Regular expression
+            if(numberpattern.test(phone.value))
+            {
+                
+            }
+            else
+            {
+                e.preventDefault();
+                document.querySelector("#phone").innerHTML="Phone number not valid";
+                document.querySelector("#phone").style.display="block";
+            }
+	     }
+
+         validation();
        }
 
         })
       }
+
+      function validateEmail (emailAdress){
+        let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (emailAdress.match(regexEmail)) {
+            return true; 
+        } else {
+            return false; 
+        }
+     }
       
       ValidateInput();
       
