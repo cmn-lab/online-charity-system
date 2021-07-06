@@ -1,22 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=montserrat:500');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 :root{
-    --text-white: whitesmoke;
-    --text-black: #10141E;
-    --text-black-faint: #1d1f24;
+    --light-body: #f3f8fe;
+    --light-main: #fdfdfd;
+    --light-second: #c3c2c8;
+    --light-hover: #edf0f5;
+    --light-text: #151426;
+    --text-white: white;
+    --bg-white: #f3f3f3;
     --text-link: gray;
     --text-hover-color: whitesmoke;
-    --bg-white: #f3f3f3;
     --base-yellow: #F5F219;
     --bg-yellow: #E6E318;
     --btn-hover: #c2bf11;
+    --nav-white:#10141E;
+
+    --dark-body: #4d4c5a;
+    --dark-main: #141529;
+    --dark-second: #79788c;
+    --dark-hover: #edf8f5;
+    --dark-text: #f8fbff;
+    --text-black: #10141E;
+    --text-black-faint: #03060c;
+    --footer-black: #1E1D1C;
     --btn-black-hover: #343538;
     --base-black: #10141E;
-    --nav-black: #10141E;
-    --footer-black: #1E1D1C;
+    --nav-black: black;
+    --bg-black: black;
+
+    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --blue: #0000ff;
+}
+.dark{
+    --bg-body:var(--dark-body);
+    --bg-main:var(--dark-main);
+    --bg-fav:var(--bg-black);
+    --bg-second:var(--dark-second);
+    --color-hover:var(--dark-hover);
+    --color-txt: var(--dark-text);
+    --bg-nav:var(--nav-black);
+} 
+.light{
+    --bg-body:var(--light-body);
+    --bg-fav:var(--bg-white);
+    --bg-main:var(--light-main);
+    --bg-second:var(--light-second);
+    --color-hover:var(--light-hover);
+    --color-txt: var(--light-text);
+    --bg-nav: var(--nav-white);
+} 
+body{
+    width: 100%;
+    height: 100%;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-fav);
+
+}
+li, a{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
 }
 /*base styles*/
 .button{
@@ -45,93 +97,63 @@
 .btn-black:hover{
     background-color: var(--btn-black-hover);
 }
-.card{
-    width: 260px;
-    height: 300px;
-    color: var(--text-black);
-    border: 1px solid transparent;
-}
-.card img{
-    width: 100%;
-    height: auto;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-}
-.card-details{
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    justify-content: center;
-}
-.card-details .card-title{
-    text-transform: capitalize;
-    margin-bottom: 10px;
-}
-.card-details .date-time{
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    text-transform: capitalize;
-    margin: 8px 0;
-}
-.card-details hr{
-    width: 100%;
-}
-.card-details p{
-    margin-top: 5px;
-}
-/******home page******/
-/*nav*/
-nav{
+/**header**/
+header{
+    position: absolute;
     top: 0;
-    position: fixed;
     width: 100%;
     height: 80px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    padding:  30px 5%;
     color: var(--text-white);
-    background-color: var(--nav-black);
+    background-color: var(--bg-nav);
+    overflow-y: hidden;
 }
-nav h1{
+.logo{
+    cursor: pointer;
+    margin-right: auto;
     text-transform: uppercase;
-    margin: auto auto auto 100px;
 }
 .nav-links{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    list-style: none;
 }
-.nav-links ul{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-evenly;
+.nav-links li{
+    display: inline-block;
+    padding: 0px 20px;
 }
-.nav-links ul li{
-    width: auto;
-    list-style-type: none;
-    border: 3px solid transparent;
+.nav-links li a{
+    transition: all 0.3s ease 0s;
 }
-.nav-links ul li a{
-    color: var(--text-link);
-    text-decoration: none;
-    text-transform: capitalize;
-    padding: 30px;
-    border: 1px solid transparent;
-    border-right-color: transparent;
-    transition: all .5s ease-in-out;
+.nav-links li a:hover{
+    color: #F5F219;
 }
-.nav-links ul li a:active, .nav-links ul li a:hover{
-    color: var(--text-hover-color);
-    transition: all .5s ease-in-out;
+button{
+    padding: 9px 25px;
+    background-color: #E6E318;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
 }
-.nav-links button{
-    margin: auto 100px auto auto;
+button:hover{
+    background-color: #c2bf11;
 }
+/* .icon {
+    position: absolute;
+    margin-left: 100px;
+     background: #f2f2f2;
+     height: 40px;
+     width: 40px;
+     text-align: center;
+     line-height: 40px;
+     border-radius: 50%;
+     color: #ff7979;
+     font-size: 17px;
+     box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
+} */
 /**poster**/
 .poster{
     margin-top: 80px;
@@ -190,6 +212,7 @@ nav h1{
 .poster .causes .causes-item div h3{
     font-weight: bolder;
     text-transform: uppercase;
+    /* color: var(--color-txt); */
 }
 .poster .causes .causes-item div hr{
     width: 30%;
@@ -201,18 +224,21 @@ nav h1{
 }
 /**targets**/
 .targets{
-    width: 100%;
-    height: 70vh;
+    /* width: 100%;
+    height: 70vh; */
     display: flex;
-    flex-flow: column nowrap;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    background-color: var(--bg-white);
-    border: 1px solid transparent;
+    flex-flow: row nowrap;
+    background-color: var(--bg-fav);
+    /* border: 1px solid transparent; */
+    padding: 10px;
 }
 .targets h2{
     text-transform: uppercase;
     font-size: 2rem;
+    color:var(--color-txt);
+    
 }
 /**how to help**/
 .how-to-help{
@@ -283,41 +309,153 @@ nav h1{
 }
 .how-to-help .hth-items .hth-img video{
     width: 100%;
-    height: 100%;
+    height: 80%;
 }
 /**recent updates**/
 .recent-updates{
     width: 100%;
-    height: 90vh;
+    height: auto;
+    background-color:var(--bg-body);
+}
+ .recent-updates h2{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-txt);
+    background-color: var(--bg-fav);
+} 
+.recent-updates .recents-row {
+    display:flex;
+    flex-wrap: wrap;
+    background-color: var(--bg-fav);
+}
+
+/*****card design start******/
+/* .box{
+    position: relative;
+    width: 250px;
+    min-height: 250px;
     display: flex;
-    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 40px; */
+    /* background: #060c21; */
+    /* background: #203040;
+    transition: 0.5s;  
+} */
+/* .row{
+display: flex;
+flex-wrap: wrap; */
+/* justify-content: space-between;
+align-items: center;  */
+/* } */
+.card{
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+    font-family: roboto;
+    color: #000;
+    text-align: center;
+    align-content: center;
+    overflow: hidden; 
+    padding: 10px 35px;
+    cursor: pointer;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.card-image{
+    grid-area: image;
+    background: url(../images/atlas-green-hVdZBDs2an0-unsplash.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;    
+}
+.card-text{
+    grid-area: text;
+    margin: 25px;
+    overflow: hidden;
+}
+.card-text .date{
+    color: gray;
+    font-size: 13px;
+    font-weight: 300;
+}
+.card-text h2{
+    margin-top: 0px;
+    font-size: 28px;
+}
+.card-text p{
+    color: var(--color-txt);
+}
+.card-stats{
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #F5F219;
+}
+.card-stats .stat{
+    display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--bg-white);
+    flex-direction: column;
+    padding: 10px;
+    color: #000;   
 }
-.recent-updates h2{
+.card-stats .type{
+    font-size: 11px;
+    font-weight: 300;
     text-transform: uppercase;
-    font-size: 2rem;
 }
-.recent-updates .recents-row {
-    width: 85%;
-    height: auto;
-    margin-top: 30px;
+.card-stats .value{
+    font-size: 22px;
+    font-weight: 500;
+}
+.card-stats .border{
+    border-left: 1px solid #c2bf11;
+    border-right: 1px solid #c2bf11;
+}
+.card-stats .value sup{
+    font-size: 12px;
+}
+.card-details{
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     align-items: flex-start;
-    justify-content: space-around;
-    border: 1px solid transparent;
+    justify-content: center;
 }
 /**footer**/
 footer{
+    /* position  : absolute; */
     width: 100%;
-    height: 100vh;
-    color: var(--text-white);
-    background-color: var(--footer-black);
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    background: #111;
+    font-family: "Open Sans";
+    overflow-y: hidden;
+    margin-top: 10px;
+}
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* text-align: center; */
+}
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
 }
 .newsletter{
-    width: auto;
+    width: 90%;
     height: 130px;
     display: flex;
     flex-flow: row nowrap;
@@ -327,6 +465,7 @@ footer{
     background-color: var(--base-yellow);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    overflow-y: hidden;
 }
 .newsletter .newsletter-details{
     width: auto;
@@ -386,6 +525,7 @@ footer{
 }
 .newsletter .newsletter-form form .subscribe{
     margin-top: 34px;
+    overflow-y: hidden;
 }
 .footer-details{
     width: auto;
@@ -457,235 +597,394 @@ footer{
     transition: all .5s ease-in-out;
     background-color: var(--btn-hover);
 }
-.copyright-block{
-    width: auto;
+.socials{
+    list-style: none;
     display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: auto 100px;
-    color: var(--text-white);
-    border: 1px solid transparent;
-}
-/****home page end****/
-
-/****charity center page ****/
-.center-container{
-    width: 100%;
-    height: auto;
-}
-.center-poster{
-    width: 100%;
-    height: 60vh;
-    margin-top: 80px;
-    background-color: var(--bg-white);
-    background-image: url('../images/bill-wegener-LqOO5Ko0zSo-unsplash.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 1px solid inherit;
-}
-.center-poster .center-title{
-    width: 40%;
-    height: 100%;
-    font-size: 2rem;
-    margin-left: 100px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    background-color: transparent;
-    border: 1px solid transparent;
+    margin: 1rem 0 3rem 0;
 }
-.center-poster .center-title a{
-    font-size: 1rem;
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
     text-decoration: none;
-    color: var(--text-black);
+    color: #fff;
 }
-.center-highlight{
-    padding: 1px;
-    background-color: transparent;
-}
-.center-poster .center-title h2{
-    width: auto;
-    text-transform: uppercase;
-    color: var(--text-white);
-    text-shadow: 2px 2px 2px var(--text-black);
-}
-.center-poster .center-title p{
-    width: auto;
-    text-transform: capitalize;
-    color: var(--text-white);
-    text-shadow: 3px 3px 3px var(--text-black);
-}
-.center-mission-vision{
-    width: auto;
-    height: 30vh;
-    padding: 20px;
-    margin: auto 100px;
-    border: 1px solid transparent;
-}
-.center-mission-vision h3{
+.socials a i{
+    padding-left: 5px;
     font-size: 2rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: #F5F219;
+}
+.footer-bottom{
+    background: #000;
+    width:  100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}  
+.footer-bottom span{
     text-transform: uppercase;
-    text-align: center;
-    color: var(--text-black);
+    opacity: .4;
+    font-weight: 200;
 }
-.center-mission-vision p{
-    font-size: 1.5rem;
+
+/****events start****/
+
+.events{
+    background: #F5F219
+}
+.wrapper{
+    background: red;
+    max-width: 1080px;
+    margin: 5px auto;
+    padding: 0 20px;
+}
+.wrapper .center-line{
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: #fff;
+    left: 50%;
+}
+.wrapper .row{
+    display: flex;
+    justify-content: flex-start;
+}
+.wrapper .row section{
+    background: #fff;
+    border-radius: 5px;
+    width: calc(50% - 40px);
+}
+/****events end****/ 
+/****calender start****/
+.calender{
+    width: max-content;
+    height: max-content;
+    background-color: var(--bg-main);
+    border-radius: 30px;
+    padding:20px;
+    position:sticky;
+    overflow: hidden;
+    justify-content: flex-start;
+    margin-left: 5%;
+    overflow-y: hidden;
+}
+.light .calender{
+    box-shadow: var(--shadow);
+}
+.calender-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--color-txt);
     padding: 10px;
-    text-transform: unset;
-    text-align: center;
-    color: var(--text-black);
 }
-.center-mission-vision p::selection{
+.calender-body{
+    padding: 10px;
+    overflow-y: hidden;
+}
+.calender-week-day{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+    height: 50px;
+}
+.calender-week-day div{
+    display: grid;
+    place-items: center;
+    color: var(--bg-second);
+}
+.calender-days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    color: var(--color-txt);
+    overflow-y: hidden;
+}
+.calender-days div{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    animation: to-top 1s forwards;
+}
+.month-picker{
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.month-picker:hover{
+    background-color: var(--color-hover);
+}
+.year-picker{
+    display: flex;
+    align-items: center;
+}
+.year-change{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.year-change:hover{
+    background-color: var(--color-hover);
+}
+.calender-footer{
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.toggle{
+    display: flex;
+}
+.toggle span{
+    margin-right: 10px;
+    /* color: var(--color-txt); */
+}
+.dark-mode-switch{
+    position:relative;
+    width: 48px;
+    height: 25px;
+    border-radius: 14px;
+    background-color: var(--bg-second);
+    cursor: pointer;
+}
+.dark-mode-switch-ident{
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: var(--bg-main);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.2 ease-in-out;
+}
+.dark .dark-mode-switch .dark-mode-switch-ident{
+    top: 2px;
+    left: calc(2px + 50%);
+}
+.calender-days div span{
+     position:absolute ;
+}
+.calender-days div:hover span{
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+.calender-days div span:nth-child(1),
+.calender-days div span:nth-child(3){
+    width: 2px;
+    height: 0;
+    background-color: var(--color-txt);
+}
+
+.calender-days div:hover span:nth-child(1),
+.calender-days div:hover span:nth-child(3){
+    height: 100%;
+}
+ .calender-days div span:nth-child(1){
+    bottom: 0;
+    left: 0;
+} 
+ .calender-days div span:nth-child(3){
+    top: 0;
+    right: 0;
+}
+.calender-days div span:nth-child(2),
+.calender-days div span:nth-child(4){
+    width: 0;
+    height: 2px;
+    background-color: var(--color-txt);
+}
+.calender-days div:hover span:nth-child(2),
+.calender-days div:hover span:nth-child(4){
+    width: 100%;
+}
+ .calender-days div span:nth-child(2){
+    top: 0;
+    left: 0;
+}
+.calender-days div span:nth-child(4){
+    bottom: 0;
+    right: 0;
+}
+.calender-days div:hover span:nth-child(2){
+    transition-delay: 0.2s;
+}
+.calender-days div:hover span:nth-child(3){
+    transition-delay: 0.4s;
+}
+.calender-days div:hover span:nth-child(4){
+    transition-delay: 0.6s;
+}
+.calender-days div.curr-date{
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 50%;
+}
+.calender-days div.curr-date span{
+    display: none;
+}
+.month-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-main);
+    padding: 20px;
+    color: var(--color-txt);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 5px;
+    transform: scale(1.5);
+    visibility: hidden;
+    pointer-events: none;
+
+}
+
+.month-list.show {
+    transform: scale(1);
+    visibility: visible;
+    pointer-events: visible;
+    transition: all 0.2s ease-in-out;
+}
+.month-list > div {
+    display: grid;
+    place-items: center;
+}
+.month-list > div > div {
+    width: 100%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+ 
+.month-list > div >div:hover {
+    background-color: var(--color-hover);
+}
+
+@keyframes to-top {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/****calender end****/
+.calender2{
+    display: flex;
+    align-items: center;
     background-color: var(--base-yellow);
 }
-.center-mission-vision p::before{
-    content: open-quote;
-    font-size: 40px;
-    font-weight: bold;
-    color: red;
+/*not concerned*/
+/****notification start****/
+@media (max-width: 830px) {
+    header{
+        padding:  30px 1%;
+    }
+    .nav-links{
+        padding: 0px 3px;
+    }
+    .nav-links li{
+        padding: 0px 5px;
+    }
+    .poster .message hr{
+        width: 31%;
+    }
+    .poster .causes{
+        margin-left: 1%;
+        width: 97%;
+        height: 180px;
+    }
+    .poster .causes .causes-item h3{
+        font-size: 0.85rem;
+    }
+    .poster .causes .causes-item img{
+        margin-top: 15%;
+        border-radius: 50%;
+        width: 500px;
+    }
+    .how-to-help .hth-items div{
+        /* width: 50%; */
+        height: 350px;
+    }
+    .how-to-help .hth-items div .help-methods div img{
+        width: 70%;
+        height: 70%;
+    }
+    .how-to-help .hth-items div .help-methods div h4{
+        font-size: .53rem; 
+    }
+    .how-to-help .hth-items .hth-img video{
+        width: 100%;
+        height: 80%;
+    }
+    .recent-updates{
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--bg-white); 
+    }
+    .newsletter{
+        width: 97%;
+        height: auto;
+    }
+    .newsletter .newsletter-details img{
+        margin-top: 10%;
+        border-radius: 50%;
+        width: 130px;
+    }
+    .newsletter .newsletter-details .newsletter-title h2{
+        font-size: 19px;
+    }
+    .newsletter .newsletter-details .newsletter-title p{
+        font-size: 13px;
+    }
+    .newsletter .newsletter-form form .form-group input{
+        width: 140px;
+        /* height: 38px; */
+    }
+    .newsletter .newsletter-form form .subscribe{
+        overflow-y: hidden;
+    }
+    .footer-details{
+        width: 95%;
+        height: 400px;
+    }
+    .footer-details .footer-details-item h2{
+        font-size: 18px;
+    }
+    
 }
-.center-mission-vision p::after{
-    content: close-quote;
-    font-size: 40px;
-    font-weight: bold;
-    color: red;
+@media (max-width: 777px) {
+    header{
+        padding:  30px 1px;
+    }
 }
-.why-support-us-container{
-    width: 100%;
-    height: auto;
-    padding: 30px;
-    background-color: var(--base-black);
+@media (max-width: 750px) {
+    header{
+        padding-top:  30px;
+    }
 }
-.why-support-us{
-    width: auto;
-    height:30vh;
-    margin: auto 100px;
-    border: 1px solid transparent;
-}
-.why-support-us h3{
-    font-size: 2rem;
-    text-transform: uppercase;
-    text-align: center;
-    color: var(--text-white);
-}
-.why-support-us p{
-    font-size: 1.5rem;
-    padding: 10px;
-    text-transform: unset;
-    text-align: left;
-    color: var(--text-white);
-}
-.donation-line{
-    width: 85%;
-    border: 1px solid var(--text-link);
-    margin: 50px 100px;
-}
-.donation{
-    width: auto;
-    height: 60vh;
-    margin: auto 100px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    border: 1px solid transparent;
-}
-.donation h3{
-    font-size: 2rem;
-    text-transform: uppercase;
-    text-align: center;
-    color: var(--text-black);
-}
-.donation .donation-form{
-    width: 100%;
-    height: 100%;
-    color: var(--text-black);
-}
-.donation-selection{
-    width: 50%;
-    height: 200px;
-    margin: 50px auto;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--text-link);
-}
-.donation-selection label{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    text-transform: capitalize;
-    border: 1px solid transparent;
-}
-.donation-selection label:hover{
-    cursor: pointer;
-}
-.selectionOn{
-    color: var(--bg-yellow);
-    background-color: var(--base-black);
-}
-.selectionOff{
-    background-color: transparent;
-}
-.donation-selection label input{
-    visibility: hidden;
-}
-.donation .donation-form .one-time-form{
-    display: none;
-}
-.donation .donation-form .monthly-form{
-    width: 100%;
-    height: 80px;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid transparent;
-}
-.donation .donation-form .monthly-form label{
-    width: 100%;
-    height: 80px;
-    font-size: 2rem;
-    font-weight: bold;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    transition: all .5s ease-in-out;
-    border: 1px solid var(--text-link);
-}
-.donation .donation-form .monthly-form label:hover{
-    cursor: pointer;
-    transition: all .5s ease-in-out;
-    color: var(--base-yellow);
-    background-color: var(--base-black);
-}
-.donation .donation-form .monthly-form label input{
-    visibility: hidden;
-}
-.donation-type-box{
-    display: none;
-    width: 100%;
-    height: 100px;
-    background-color: var(--bg-yellow);
-    position: relative;
-}
-.donation-type-box input{
-    width: 60%;
-    height: 50px;
-    padding-left: 30px;
-    overflow: hidden;
-}
-/* .donation .donation-form button{
-margin: 30px 450px;
-} */
-
-/****charity center page end****/
