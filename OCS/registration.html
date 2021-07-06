@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="body-div">
+    <div class="navigation">
+        <div class="logo"><h3>CHARITY</h3></div>
+        <div class="nav-links">
+            <nav>
+                <a href="index.html" class="nav-class">Home</a>
+                <a href="" class="nav-class">About Us</a>
+                <a href="" class="nav-class">Pages</a>
+                <a href="" class="nav-class">Events</a>
+                <a href="" class="nav-class">Contact</a>
+                <button id="donate">Donate Now</button>
+            </nav>
+        </div>
+        <div class="mobile">
+            <button id="btn-mobile">☰</button>
+        </div>
+    </div>
+    <div class="showcontent">
+       
+    </div>
+   
+    <form action="" method="post" id="forms">
+        <h3>Fill the form below to register</h3>
+        <input type="text" name="" id="in-fname"  class="form-fields" placeholder="First Name">
+        <span id="fname" class="error">fname</span>
+
+        <input type="text" name="" id="in-lname"  class="form-fields" placeholder="Last Name">
+        <span id="lname" class="error">lname</span>
+
+        <input type="email" name="" id="in-email"  class="form-fields" placeholder="Email">
+        <span id="email" class="error">email</span>
+
+        <input type="password" name="" id="in-pass"  class="form-fields" placeholder="Password">
+        <span id="pass" class="error">pass</span>
+        <input type="tel" name="" id="in-phone"  class="form-fields" placeholder="Phone number">
+        <span id="phone" class="error">Phone</span>
+        <select name="country" id="in-country" class="form-fields">
+            <option value="" disabled>Choose Country</option>
+            <option value="Tanzania">Tanzania</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Uganda">Uganda</option>
+        </select>
+        <span id="country" class="error">country</span>
+        <div class="individual-company">
+            <label for="individual">Individual</label>
+            <input type="radio" name="userType" id="individual">
+            <label for="company">Company</label>
+            <input type="radio" name="userType" id="company">
+        </div>
+        <button type="submit" id="register-btn">Register</button>
+
+         <div class="do-not-account">
+             <span>Have an account <a href="login.html" class="login">Login</a></span>
+            <a href=""></a>
+         </div>
+       
+    </form>
+
+    <div class="mobile-navigation">
+        <div class="nav-links-mobile">
+            <nav class="nav-links-mobile">
+                <a href="index.html" class="nav-class">Home</a>
+                <a href="" class="nav-class">About Us</a>
+                <a href="" class="nav-class">Pages</a>
+                <a href="" class="nav-class">Events</a>
+                <a href="" class="nav-class">Contact</a>
+                <button id="donate">Donate Now</button>
+            </nav>
+        </div>
+    </div>
+    </div>
+    <script src="jQuerrylibarary.js"></script>
+  <script>
+
+      let count=0;
+      document.querySelector("#btn-mobile").addEventListener("click",()=>{
+         count++;
+         if(count==2){
+             count=0;
+         }
+
+         if(count==1){
+            document.querySelector(".mobile-navigation").style.display="flex";
+         }else {
+            document.querySelector(".mobile-navigation").style.display="none";
+         }
+      })
+
+
+      function ValidateInput() {
+       let email= document.querySelector("#in-email");
+       let pass=document.querySelector("#in-pass");
+       let phone=document.querySelector("#in-phone");
+       let country=document.querySelector("#in-country");
+       let fname=document.querySelector("#in-fname");
+       let lname=document.querySelector("#in-lname");
+
+       document.querySelector('#forms').addEventListener('submit',(e)=>{
+        if(email.value==""||pass.value==""||phone.value==""||fname.value==""||lname.value==""){
+            
+            //firstname is empty
+            document.querySelector("#fname").innerHTML="This can't be empty";
+               document.querySelector("#fname").style.display="block";
+             
+               
+               //lastname is empty
+
+               document.querySelector("#lname").innerHTML="This can't be empty";
+               document.querySelector("#lname").style.display="block";
+
+               document.querySelector("#email").innerHTML="This can't be empty";
+               document.querySelector("#email").style.display="block";
+               
+                //password
+               document.querySelector("#pass").innerHTML="This can't be empty";
+                document.querySelector("#pass").style.display="block";
+
+                //phone number 
+                document.querySelector("#phone").innerHTML="This can't be empty";
+                document.querySelector("#phone").style.display="block";
+
+                //Focuss and Leave without fill the input.
+
+                //First name not fill and leave
+
+             document.querySelector("#in-fname").addEventListener("blur",()=>{
+            if(fname.value==""){
+               
+               document.querySelector("#fname").innerHTML="This can't be empty";
+               document.querySelector("#fname").style.display="block";
+               $('form').submit(false);
+            }else {
+              
+                document.querySelector("#fname").style.display="none";
+            }
+        })
+
+                //lname not fill and leave 
+
+                document.querySelector("#in-lname").addEventListener("blur",()=>{
+            if(lname.value==""){
+               
+               document.querySelector("#lname").innerHTML="This can't be empty";
+               document.querySelector("#lname").style.display="block";
+               $('form').submit(false);
+            }else {
+                
+                document.querySelector("#lname").style.display="none";
+            }
+        })
+             
+
+                //email not fill and leave.
+                
+           document.querySelector("#in-email").addEventListener("blur",()=>{
+            if(email.value==""){
+               
+               document.querySelector("#email").innerHTML="This can't be empty";
+               document.querySelector("#email").style.display="block";
+               $('form').submit(false);
+            }else {
+                
+                document.querySelector("#email").style.display="none";
+            }
+        })
+            //password not fill and leave
+
+            document.querySelector("#in-pass").addEventListener("blur",()=>{
+                        if(pass.value==""){
+                            document.querySelector("#pass").innerHTML="This can't be empty";
+                            document.querySelector("#pass").style.display="block";
+                            $('form').submit(false);
+                        }else{
+                            document.querySelector("#pass").style.display="none";
+                        }
+                    })
+
+            //phone not fill and leave
+
+            document.querySelector("#in-phone").addEventListener("blur",()=>{
+                        if(phone.value==""){
+                            document.querySelector("#phone").innerHTML="This can't be empty";
+                            document.querySelector("#phone").style.display="block";
+                            $('form').submit(false);
+                        }else {
+                            document.querySelector("#phone").style.display="none";
+                        }
+        })
+
+
+           e.preventDefault();
+
+       }else {
+       
+         
+       }
+
+        })
+      }
+      
+      ValidateInput();
+      
+  </script>
+</body>
+</html>
